@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clone') {
+            steps {
+                git 'https://github.com/Padmakar15DevOps'
+            }
+        }
+
+        stage('Build Image') {
+            steps {
+                bat 'docker build -t myapp .'
+            }
+        }
+
+        stage('Remove Old Container') {
+            steps {
+                bat 'docker rm -f mycontainer'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                bat 'docker run -d --name mycontainer -p 80:80 myapp'
+            }
+        }
+    }
+}
