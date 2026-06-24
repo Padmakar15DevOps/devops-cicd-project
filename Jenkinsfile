@@ -1,18 +1,17 @@
 pipeline {
-    agent any
+agent any
 
-    stages {
+```
+stages {
 
-         {
-            steps {
-                git 'https://github.com/Padmakar15DevOps/devops-cicd-project.git'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Build Successful'
-            }
+    stage('Build') {
+        steps {
+            echo 'Build Successful'
         }
     }
+
 }
+```
+
+}
+
